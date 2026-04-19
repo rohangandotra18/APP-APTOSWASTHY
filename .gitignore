@@ -63,3 +63,6 @@ TRASH-FILES.md
 # R artifacts
 .Rhistory
 .RData
+
+# Large CAESAR body model data (exceeds GitHub 100MB limit)
+caesar-norm-wsx/
