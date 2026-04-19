@@ -1,7 +1,7 @@
 <<<<<<< HEAD
-# AptoSwasthy — Your Personal Health Intelligence App
+# AptoSwasthy: Your Personal Health Intelligence App
 
-AptoSwasthy is an iOS app that acts like a personal health advisor in your pocket. It tracks your health metrics, analyzes your habits, estimates your life expectancy, and gives you personalized recommendations — all powered by an AI assistant called **Pearl**.
+AptoSwasthy is an iOS app that acts like a personal health advisor in your pocket. It tracks your health metrics, analyzes your habits, estimates your life expectancy, and gives you personalized recommendations wiht an all powered by an AI assistant called **Pearl**.
 
 Think of it as your smart health dashboard: connect it to Apple Health, log your meals, import blood test results, and Pearl will make sense of it all for you.
 
@@ -170,7 +170,7 @@ When you first open AptoSwasthy:
 → On your iPhone, go to **Settings → General → VPN & Device Management**, find your Apple ID, and tap **Trust**.
 
 **Simulator is very slow**
-→ Try a different simulator — iPhones with "Pro" in the name tend to perform better. Also make sure your Mac has at least 8GB of RAM.
+→ Try a different simulator, iPhones with "Pro" in the name tend to perform better. Also make sure your Mac has at least 8GB of RAM.
 
 ---
 
