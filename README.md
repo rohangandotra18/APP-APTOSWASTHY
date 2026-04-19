@@ -33,6 +33,7 @@ You need a **Mac computer** to build and run this app (iPhones can't build apps 
 | An iPhone running **iOS 18** or newer | To test on a real device (optional — simulator works too) | You likely already have one |
 | **Homebrew** | A package manager for Mac (makes installing tools easy) | Yes |
 | **XcodeGen** | A tool that sets up the Xcode project file | Yes |
+| **CAESAR Body Model Data** | Required for the 3D body visualization feature — see the section below | Free (registration required) |
 
 ---
 
@@ -173,6 +174,65 @@ When you first open AptoSwasthy:
 
 ---
 
+## 3D Body Model Data (Required)
+
+The app includes a feature that shows a 3D body model that adapts to your height, weight, and body composition. This model is powered by the **CAESAR anthropometric dataset** — a large scientific dataset of real human body measurements.
+
+The pre-processed model file (`body_basis.bin`) is already included in this repo and the app will work out of the box. **You only need to follow the steps below if you ever need to rebuild that file from scratch** (for example, after modifying the Python conversion script).
+
+### What are these files?
+
+The raw data comes from the **HumanShape / CAESAR-norm-WSX** dataset, published by Pishchulin et al. (2015) in the paper *"Building Statistical Shape Spaces for 3D Human Modeling"* from the Max Planck Institute for Informatics. It is licensed for non-commercial use only.
+
+The four raw data files are:
+
+| File | Size | What it contains |
+|------|------|-----------------|
+| `meanShape.mat` | ~1 MB | The average human body mesh (6,449 points) |
+| `evalues.mat` | ~1 MB | How much each body shape component varies |
+| `evectors.mat` | ~610 MB | All the possible body shape variations |
+| `model.dat` | ~1 MB | The mesh triangle structure |
+
+### Where to download them
+
+1. Go to the **Max Planck Institute for Informatics HumanShape project page**:
+   `https://humanshape.mpi-inf.mpg.de`
+2. Register for a free account (required for non-commercial download)
+3. Download the **CAESAR-norm-WSX** dataset package
+4. Extract the ZIP — you'll find the four files listed above inside
+
+### Where to put them
+
+Once downloaded, create a folder called `caesar-norm-wsx` in the root of this project and place all four files inside it:
+
+```
+APP/
+└── caesar-norm-wsx/
+    ├── meanShape.mat
+    ├── evalues.mat
+    ├── evectors.mat
+    └── model.dat
+```
+
+### How to rebuild `body_basis.bin` (optional)
+
+If you need to regenerate the pre-processed binary from the raw files:
+
+1. Make sure Python 3 is installed on your Mac (check by running `python3 --version` in Terminal)
+2. Install the required Python packages:
+   ```
+   pip3 install numpy scipy
+   ```
+3. Run the conversion script from the project root:
+   ```
+   python3 AptoSwasthy/tools/convert_humanshape.py
+   ```
+   This takes a few minutes (the `evectors.mat` file is 610 MB). When done, it overwrites `body_basis.bin` inside the app's Resources folder automatically.
+
+> **Note:** The `caesar-norm-wsx/` folder is excluded from this GitHub repository because the files are too large for GitHub (610 MB). They live on your Mac only.
+
+---
+
 ## Project Structure (for the curious)
 
 ```
@@ -190,10 +250,6 @@ APP/
 │   │   └── Models/       — Data structures (User, Meal, Habit, etc.)
 │   ├── infra/            — Backend server code (AWS Lambda)
 │   └── project.yml       — Xcode project configuration
-├── caesar-norm-wsx/      — Body shape model data (for 3D visualization)
 ├── appicon.png           — App icon reference
 └── README.md             — This file
 ```
-=======
-# APP-APTOSWASTHY
->>>>>>> 30ee278dad31714af55c0cb8658ad37001abd533
