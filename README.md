@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AptoSwasthy — Your Personal Health Intelligence App
 
 AptoSwasthy is an iOS app that acts like a personal health advisor in your pocket. It tracks your health metrics, analyzes your habits, estimates your life expectancy, and gives you personalized recommendations — all powered by an AI assistant called **Pearl**.
@@ -193,3 +194,6 @@ APP/
 ├── appicon.png           — App icon reference
 └── README.md             — This file
 ```
+=======
+# APP-APTOSWASTHY
+>>>>>>> 30ee278dad31714af55c0cb8658ad37001abd533
