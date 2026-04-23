@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 # AptoSwasthy: Your Personal Health Intelligence App
 
-AptoSwasthy is an iOS app that acts like a personal health advisor in your pocket. It tracks your health metrics, analyzes your habits, estimates your life expectancy, and gives you personalized recommendations wiht an all powered by an AI assistant called **Pearl**.
+AptoSwasthy is an iOS app that acts like a personal health advisor in your pocket. It tracks your health metrics, analyzes your habits, estimates your life expectancy, and gives you personalized recommendations — all powered by an AI assistant called **Pearl**.
 
 Think of it as your smart health dashboard: connect it to Apple Health, log your meals, import blood test results, and Pearl will make sense of it all for you.
 
@@ -37,7 +36,57 @@ You need a **Mac computer** to build and run this app (iPhones can't build apps 
 
 ---
 
-## Step-by-Step Setup Guide
+## Starting on a New Computer — Quick Start
+
+If you just want the app running on a fresh Mac as fast as possible, do these three things in order:
+
+### 1. Install Xcode from the Mac App Store
+
+Open the **App Store**, search for **Xcode**, click **Get** / **Install** (it's ~15 GB — give it time). Once it finishes, open Xcode once so it can accept the license, then close it.
+
+### 2. Get the code onto the Mac
+
+Open **Terminal** (press `⌘ + Space`, type "Terminal", hit Enter) and run:
+
+```
+cd ~/Desktop
+git clone https://github.com/rohangandotra18/APP-APTOSWASTHY.git APP
+cd APP
+```
+
+> If you don't have `git` yet, macOS will prompt you to install the Xcode Command Line Tools — click **Install** and wait for it to finish, then re-run the `git clone` command.
+>
+> If you received the code as a ZIP instead, double-click to extract it, rename the folder to `APP`, and move it to your Desktop. Then `cd ~/Desktop/APP` in Terminal.
+
+### 3. Run the setup script
+
+From the `APP` folder in Terminal:
+
+```
+./setup.sh
+```
+
+This one command installs Homebrew (if missing), installs XcodeGen, generates the Xcode project, and opens it in Xcode for you.
+
+### 4. Pick your Apple ID and press Play
+
+When Xcode opens:
+
+1. Click **AptoSwasthy** in the left sidebar (the blue project icon at the top)
+2. Go to the **Signing & Capabilities** tab
+3. Under **Team**, pick your Apple ID from the dropdown (add it via **Xcode → Settings → Accounts** if it isn't listed)
+4. At the top of Xcode, pick an iPhone simulator (e.g. **iPhone 16 Pro**) or your connected iPhone
+5. Press the **Play button** (▶) or `⌘ + R`
+
+That's it — the app will build and launch. First build takes a few minutes; subsequent builds are fast.
+
+> **About the 3D body model:** The app includes a pre-built `body_basis.bin` file, so the 3D body visualization works out of the box. You only need the raw CAESAR files if you want to rebuild that binary — see the [3D Body Model Data](#3d-body-model-data-required) section at the bottom.
+
+---
+
+## Step-by-Step Setup Guide (Manual — if the Quick Start fails)
+
+Use this if `setup.sh` didn't work for any reason, or if you want to understand exactly what's happening.
 
 ### Step 1 — Install Xcode
 
@@ -78,7 +127,7 @@ If you received the code as a ZIP file:
 
 If you're cloning from GitHub:
 ```
-git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
+git clone https://github.com/rohangandotra18/APP-APTOSWASTHY.git
 ```
 
 ### Step 5 — Generate the Xcode Project
